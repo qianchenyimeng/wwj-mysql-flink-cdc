@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: test
+server:
+  port: 8081
+logging:
+  level:
+    com.wwj.dao: DEBUG
+  config: classpath:logback.xml

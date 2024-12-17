@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/extract?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: 111111
+    validation-query: SELECT 1 FROM DUAL
+    min-idle: 5
+    max-active: 20
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    pool-prepared-statements: true
+    max-pool-prepared-statement-per-connection-size: 20
+    use-global-data-source-stat: true
+    connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+cdc:
+  host-name: localhost
+  port: 3306
+  database: wwj
+  table-list: wwj.studnet
+  user-name: root
+  password: 111111
+  save-point-path-key: execution.savepoint.path
+  save-point-path: /mnt/mysql-checkpoint/
+  check-point-path: file:////mnt/mysql-checkpoint
