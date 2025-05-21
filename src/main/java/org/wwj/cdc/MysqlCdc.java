@@ -60,7 +60,7 @@ public class MysqlCdc implements ApplicationRunner, Serializable {
         // 配置数据源，设置并行度
         DataStreamSource<String> streamSource = env
                 .fromSource(sourceBuilder.build(), WatermarkStrategy.noWatermarks(), "mysql-cdc-source")
-                .setParallelism(1);
+                .setParallelism(4);
         streamSource.print();
         try {
             env.execute();
